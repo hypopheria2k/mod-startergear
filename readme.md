@@ -19,7 +19,7 @@
 
 <p align="center">
 
-<img src="https://img.shields.io/badge/Status-Production_Ready-10b981?style=flat-square">
+<img src="https://img.shields.io/badge/Status-Beta-10b981?style=flat-square">
 <img src="https://img.shields.io/badge/Auto_SQL-Supported-8b5cf6?style=flat-square">
 <img src="https://img.shields.io/badge/Configurable-Yes-06b6d4?style=flat-square">
 <img src="https://img.shields.io/badge/WotLK-Heirlooms-ec4899?style=flat-square">
