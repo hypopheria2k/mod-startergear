@@ -35,16 +35,16 @@
 
 # 📚 Table of Contents
 
-- [Features](#features)
-- [How It Works](#how-it-works)
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Item Reference](#item-reference)
-- [Class Gear Overview](#class-gear-overview)
-- [Database Schema](#database-schema)
-- [For Developers](#for-developers)
-- [FAQ](#faq)
-- [License](#license)
+- [Features]
+- [How It Works]
+- [Installation]
+- [Configuration]
+- [Item Reference]
+- [Class Gear Overview]
+- [Database Schema]
+- [For Developers]
+- [FAQ]
+- [License]
 
 ---
 
