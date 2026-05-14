@@ -102,7 +102,8 @@ The included SQL patch additionally changes:
 RequiredLevel = 1
 ```
 
-for the mount item.
+to Celestial Steed (ID:54811) it's the default mount item.
+> if you want to change the mount in .conf file, you need to patch the new mount in your database, so level 1 player can learn the mount.
 
 ---
 
