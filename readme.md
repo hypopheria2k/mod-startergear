@@ -1,6 +1,6 @@
 # ⚔️ mod-startergear
 
-### A modern starter gear module for AzerothCore WotLK 3.3.5a ***Beta***
+### A modern starter gear module for AzerothCore WotLK 3.3.5a  > ***Beta*** <
 
 <p align="center">
 
