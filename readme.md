@@ -1,112 +1,88 @@
-````markdown
-<div align="center">
-
 # ⚔️ mod-startergear
 
 ### A modern starter gear module for AzerothCore WotLK 3.3.5a
 
 <p align="center">
-  <a href="https://github.com/azerothcore/azerothcore-wotlk">
-    <img src="https://img.shields.io/badge/AzerothCore-Module-0ea5e9?style=for-the-badge&logo=github&logoColor=white">
-  </a>
-  <a href="https://www.azerothcore.org/">
-    <img src="https://img.shields.io/badge/WoW-3.3.5a-facc15?style=for-the-badge">
-  </a>
-  <img src="https://img.shields.io/badge/C%2B%2B-17-f97316?style=for-the-badge&logo=cplusplus&logoColor=white">
-  <img src="https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge">
+
+<a href="https://github.com/azerothcore/azerothcore-wotlk">
+<img src="https://img.shields.io/badge/AzerothCore-Module-0ea5e9?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+<a href="https://www.azerothcore.org/">
+<img src="https://img.shields.io/badge/WoW-3.3.5a-facc15?style=for-the-badge">
+</a>
+
+<img src="https://img.shields.io/badge/C%2B%2B-17-f97316?style=for-the-badge&logo=cplusplus&logoColor=white">
+<img src="https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge">
+
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-Production_Ready-10b981?style=flat-square">
-  <img src="https://img.shields.io/badge/Auto_SQL-Supported-8b5cf6?style=flat-square">
-  <img src="https://img.shields.io/badge/Configurable-Yes-06b6d4?style=flat-square">
-  <img src="https://img.shields.io/badge/WotLK-Heirlooms-ec4899?style=flat-square">
+
+<img src="https://img.shields.io/badge/Status-Production_Ready-10b981?style=flat-square">
+<img src="https://img.shields.io/badge/Auto_SQL-Supported-8b5cf6?style=flat-square">
+<img src="https://img.shields.io/badge/Configurable-Yes-06b6d4?style=flat-square">
+<img src="https://img.shields.io/badge/WotLK-Heirlooms-ec4899?style=flat-square">
+
 </p>
 
 ---
 
-### ✨ Give freshly created characters a real head start.
-
-Class-specific heirlooms, bags, riding skills, mounts and bonus XP rewards — all delivered instantly with a single command.
+> ✨ Give freshly created characters a real head start.  
+> Class-specific heirlooms, bags, riding skills, mounts and bonus XP rewards — all delivered instantly with a single command.
 
 ---
 
-</div>
-
-<br>
-
 # 📚 Table of Contents
 
-- [✨ Features](#-features)
-- [🧠 How It Works](#-how-it-works)
-- [📦 Installation](#-installation)
-- [⚙️ Configuration](#️-configuration)
-- [📋 Item Reference](#-item-reference)
-- [🧙 Class Gear Overview](#-class-gear-overview)
-- [🗄️ Database Schema](#️-database-schema)
-- [🛠️ For Developers](#️-for-developers)
-- [❓ FAQ](#-faq)
-- [📄 License](#-license)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Item Reference](#item-reference)
+- [Class Gear Overview](#class-gear-overview)
+- [Database Schema](#database-schema)
+- [For Developers](#for-developers)
+- [FAQ](#faq)
+- [License](#license)
 
 ---
 
 # ✨ Features
 
-<div align="center">
-
 | Feature | Description |
-|:--|:--|
-| 🎒 **Starter Bags** | Configurable bag item and amount for all characters |
-| ⚔️ **Class Heirlooms** | Automatic class-specific heirloom sets |
-| 💍 **XP Ring Included** | Grants the legendary **Dread Pirate Ring** |
-| 🐴 **Riding at Level 1** | Gives riding skills instantly via `learnSpell()` |
-| 🗡️ **Multi-Spec Support** | Hybrid classes receive multiple gear paths |
-| 🔒 **One-Time Usage** | Protected by character database tracking |
-| 😂 **Funny Responses** | Random witty messages for repeat attempts |
-| ⚙️ **Fully Configurable** | Enable/disable every major feature |
-| 🗄️ **Automatic SQL** | SQL updates handled by AzerothCore automatically |
-
-</div>
+|---|---|
+| 🎒 Starter Bags | Configurable bag item and amount |
+| ⚔️ Class Heirlooms | Automatic class-specific heirloom sets |
+| 💍 XP Ring Included | Grants the Dread Pirate Ring |
+| 🐴 Riding at Level 1 | Gives riding skills instantly |
+| 🗡️ Multi-Spec Support | Hybrid classes receive multiple gear paths |
+| 🔒 One-Time Usage | Character DB tracking |
+| 😂 Funny Responses | Random witty retry messages |
+| ⚙️ Fully Configurable | Enable or disable everything |
+| 🗄️ Automatic SQL | AzerothCore DB updater support |
 
 ---
 
 # 🧠 How It Works
 
-When a player types:
+Players simply type:
 
 ```bash
 .startergear
 ```
 
-the module executes the following flow:
+The module then:
 
-```text
-Player Command
-      │
-      ▼
-Config Validation
-      │
-      ▼
-Class Validation
-      │
-      ▼
-Database Usage Check
-      │
-      ├── Already used?
-      │        └── Funny denial message
-      │
-      ▼
-Grant Starter Rewards
-      │
-      ├── Bags
-      ├── Riding Skills
-      ├── Mount
-      ├── XP Ring
-      └── Heirloom Gear
-      │
-      ▼
-Store Character GUID
-```
+1. Checks whether the module is enabled
+2. Validates the player's class
+3. Checks if the character already used the command
+4. Grants bags
+5. Grants riding skills
+6. Grants mount item
+7. Grants Dread Pirate Ring
+8. Grants class-specific heirlooms
+9. Stores the character GUID in the database
 
 ---
 
@@ -118,23 +94,15 @@ The module uses:
 Player::learnSpell()
 ```
 
-which directly injects riding spells into the player's spellbook without validating level requirements.
+This bypasses level validation without modifying the core.
 
-That means:
-
-- ✅ No core edits required
-- ✅ No hacks needed
-- ✅ Fully AzerothCore compatible
-
-The included SQL patch additionally changes the mount item's:
+The included SQL patch additionally changes:
 
 ```sql
 RequiredLevel = 1
 ```
 
-so the tooltip also correctly displays:
-
-> Requires Level 1
+for the mount item.
 
 ---
 
@@ -142,15 +110,13 @@ so the tooltip also correctly displays:
 
 ## Requirements
 
-| Requirement | Version |
-|:--|:--|
-| AzerothCore | Recent master branch |
-| Compiler | C++17 compatible |
-| Supported OS | Linux / Windows |
+- AzerothCore master branch
+- C++17 compatible compiler
+- Linux or Windows
 
 ---
 
-## 1️⃣ Clone the Module
+## Clone the Module
 
 ```bash
 cd /path/to/azerothcore/modules
@@ -160,7 +126,7 @@ git clone https://github.com/hypopheria2k/mod-startergear.git
 
 ---
 
-## 2️⃣ Re-run CMake
+## Re-run CMake
 
 ```bash
 cmake -B build .
@@ -168,7 +134,7 @@ cmake -B build .
 
 ---
 
-## 3️⃣ Compile
+## Compile
 
 ### Linux
 
@@ -177,7 +143,7 @@ cd build
 make -j$(nproc)
 ```
 
-### Windows (Visual Studio)
+### Windows
 
 ```powershell
 cmake --build . --config Release
@@ -185,7 +151,7 @@ cmake --build . --config Release
 
 ---
 
-## 4️⃣ Install Config
+## Install Config
 
 ```bash
 cp modules/mod-startergear/conf/mod-startergear.conf.dist \
@@ -194,19 +160,19 @@ configs/modules/mod-startergear.conf
 
 ---
 
-## 5️⃣ Start the Worldserver
+## Start Worldserver
 
 ```bash
 ./worldserver
 ```
 
-AzerothCore will automatically detect and apply the included SQL updates.
+SQL files will automatically be applied by AzerothCore.
 
 ---
 
 # ⚙️ Configuration
 
-Configuration file location:
+Config location:
 
 ```text
 configs/modules/mod-startergear.conf
@@ -214,96 +180,74 @@ configs/modules/mod-startergear.conf
 
 ---
 
-## Example Configuration
+## Example Config
 
 ```ini
-#
-# StarterGear Configuration
-#
-
-# Enable / Disable Module
 StarterGear.Enable = 1
 
-# Starter Bags
 StarterGear.BagId = 41600
 StarterGear.BagCount = 4
 
-# Riding + Mount
 StarterGear.GiveRiding = 1
 StarterGear.MountId = 54811
 
-# Class Toggles
-StarterGear.Class.1.Enable = 1    # Warrior
-StarterGear.Class.2.Enable = 1    # Paladin
-StarterGear.Class.3.Enable = 1    # Hunter
-StarterGear.Class.4.Enable = 1    # Rogue
-StarterGear.Class.5.Enable = 1    # Priest
-StarterGear.Class.6.Enable = 1    # Death Knight
-StarterGear.Class.7.Enable = 1    # Shaman
-StarterGear.Class.8.Enable = 1    # Mage
-StarterGear.Class.9.Enable = 1    # Warlock
-StarterGear.Class.11.Enable = 1   # Druid
+StarterGear.Class.1.Enable = 1
+StarterGear.Class.2.Enable = 1
+StarterGear.Class.3.Enable = 1
+StarterGear.Class.4.Enable = 1
+StarterGear.Class.5.Enable = 1
+StarterGear.Class.6.Enable = 1
+StarterGear.Class.7.Enable = 1
+StarterGear.Class.8.Enable = 1
+StarterGear.Class.9.Enable = 1
+StarterGear.Class.11.Enable = 1
 ```
 
 ---
 
 # 📋 Item Reference
 
-## 🛡️ Chest & Shoulder Heirlooms
+## Chest & Shoulder Heirlooms
 
-| Item ID | Name | Armor Type | Main Stat |
-|:--|:--|:--|:--|
-| `48691` | Tattered Dreadmist Robe | Cloth | Intellect |
-| `48689` | Stained Shadowcraft Tunic | Leather | Agility |
-| `48687` | Preened Ironfeather Breastplate | Leather | Intellect |
-| `48677` | Champion's Deathdealer Breastplate | Mail | Agility |
-| `48683` | Mystical Vest of Elements | Mail | Intellect |
-| `48685` | Polished Breastplate of Valor | Plate | Strength |
-
----
-
-## ⚔️ Weapon Heirlooms
-
-| Item ID | Name | Type | Stat |
-|:--|:--|:--|:--|
-| `42947` | Dignified Headmaster's Charge | Staff | Spell Power |
-| `42943` | Bloodied Arcanite Reaper | 2H Axe | Strength |
-| `42948` | Devout Aurastone Hammer | 1H Mace | Spell Power |
-| `48716` | Venerable Mass of McGowan | 1H Mace | Agility |
-| `42945` | Venerable Dal'Rend's Sacred Charge | 1H Sword | Attack Power |
-| `42944` | Balanced Heartseeker | Dagger | Agility |
-| `42946` | Charmed Ancient Bone Bow | Bow | Ranged |
+| Item ID | Name | Type |
+|---|---|---|
+| 48691 | Tattered Dreadmist Robe | Cloth |
+| 48689 | Stained Shadowcraft Tunic | Leather |
+| 48687 | Preened Ironfeather Breastplate | Leather |
+| 48677 | Champion's Deathdealer Breastplate | Mail |
+| 48683 | Mystical Vest of Elements | Mail |
+| 48685 | Polished Breastplate of Valor | Plate |
 
 ---
 
-## 💍 Trinkets & Special Items
+## Weapon Heirlooms
 
-| Item ID | Name | Effect |
-|:--|:--|:--|
-| `50255` | Dread Pirate Ring | +5% Experience |
-| `42991` | Swift Hand of Justice | Haste / Heal on Kill |
-| `42992` | Discerning Eye of the Beast | Spell Power / Mana Restore |
+| Item ID | Name | Type |
+|---|---|---|
+| 42947 | Dignified Headmaster's Charge | Staff |
+| 42943 | Bloodied Arcanite Reaper | 2H Axe |
+| 42948 | Devout Aurastone Hammer | 1H Mace |
+| 48716 | Venerable Mass of McGowan | 1H Mace |
+| 42945 | Venerable Dal'Rend's Sacred Charge | 1H Sword |
+| 42944 | Balanced Heartseeker | Dagger |
+| 42946 | Charmed Ancient Bone Bow | Bow |
 
 ---
 
 # 🧙 Class Gear Overview
 
-| Class | Armor | Weapons | Extras |
-|:--|:--|:--|:--|
-| Mage / Warlock / Priest | Cloth Int | Staff | 2× Caster Trinkets + Ring |
-| Druid | Leather Int + Agi | Staff | Melee + Caster Support |
-| Rogue | Leather Agi | Daggers + Bow | Dual Melee Trinkets |
-| Hunter | Mail Agi | Bow + 1H | Ranged Setup |
-| Shaman | Mail Int + Agi | 1H Weapons | Hybrid Support |
-| Warrior / DK / Paladin | Plate Str | 2H Axe + 1H | Melee + Hybrid |
+| Class | Gear Focus |
+|---|---|
+| Mage / Warlock / Priest | Cloth + Spellpower |
+| Druid | Intellect + Agility |
+| Rogue | Agility |
+| Hunter | Ranged |
+| Shaman | Hybrid |
+| Warrior / DK / Paladin | Strength |
 
 ---
 
 # 🗄️ Database Schema
-
-## Character Database
-
-### `custom_startergear_used`
 
 ```sql
 CREATE TABLE IF NOT EXISTS `custom_startergear_used` (
@@ -317,66 +261,49 @@ CREATE TABLE IF NOT EXISTS `custom_startergear_used` (
 
 # 🛠️ For Developers
 
-## Module Structure
+## Structure
 
 ```text
 mod-startergear/
-│
 ├── conf/
 ├── data/
-│   ├── sql/
-│   │   ├── characters/
-│   │   └── world/
-│
 ├── src/
-│   ├── StarterGear.cpp
-│   ├── StarterGear.h
-│   └── mod_startergear_loader.cpp
-│
 ├── CMakeLists.txt
 └── README.md
 ```
 
 ---
 
-## Design Goals
+## Goals
 
-- Clean and lightweight
-- Zero core modifications
+- Lightweight
+- No core edits
 - Fully configurable
-- Retail-like starter experience
+- AzerothCore compliant
 - Easy maintenance
-- AzerothCore standards compliant
 
 ---
 
 # ❓ FAQ
 
 <details>
-<summary><strong>Can players use the command more than once?</strong></summary>
+<summary>Can players use it multiple times?</summary>
 
-No. Every character GUID is permanently stored in the character database after the first use.
-
-</details>
-
-<details>
-<summary><strong>Why do hybrid classes receive extra gear?</strong></summary>
-
-To support all specs immediately — for example healing, tanking and DPS.
+No. Usage is permanently tracked in the character database.
 
 </details>
 
 <details>
-<summary><strong>Does this require core edits?</strong></summary>
+<summary>Does this require core modifications?</summary>
 
-No. The module works entirely through the AzerothCore module API.
+No. Everything works through the module API.
 
 </details>
 
 <details>
-<summary><strong>Does this work with existing characters?</strong></summary>
+<summary>Does this support existing characters?</summary>
 
-Yes. Any character that has not already used `.startergear` can use it once.
+Yes. Every unused character can use it once.
 
 </details>
 
@@ -384,21 +311,10 @@ Yes. Any character that has not already used `.startergear` can use it once.
 
 # 📄 License
 
-This project is licensed under the **MIT License**.
+Licensed under the MIT License.
 
 ---
 
-<div align="center">
+# ❤️ Built for the AzerothCore Community
 
-## ❤️ Built for the AzerothCore Community
-
-### *"Because every hero deserves a proper start."*
-
-<br>
-
-<img src="https://img.shields.io/badge/Made%20with-Love-e11d48?style=for-the-badge">
-<img src="https://img.shields.io/badge/WotLK-3.3.5a-facc15?style=for-the-badge">
-<img src="https://img.shields.io/badge/AzerothCore-Compatible-0ea5e9?style=for-the-badge">
-
-</div>
-````
+> "Because every hero deserves a proper start."
