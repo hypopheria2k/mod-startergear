@@ -141,7 +141,7 @@ public:
         if (!player)
             return false;
 
-        // --- Module enabled? ---
+        // --- Module enabled =) ---
         if (!sConfigMgr->GetOption<bool>("StarterGear.Enable", true))
         {
             handler->PSendSysMessage("|cffff0000[StarterGear]|r This feature is currently disabled.");
@@ -151,7 +151,7 @@ public:
         uint32 guidLow = player->GetGUID().GetCounter();
         uint8  classId = player->getClass();
 
-        // --- Class enabled? ---
+        // --- Class enabled? ^^ ---
         bool classEnabled = true;
         switch (classId)
         {
@@ -174,7 +174,7 @@ public:
             return true;
         }
 
-        // --- Once-per-character check ---
+        // --- Once-per-character check, yeeees baby oO ---
         if (HasAlreadyUsed(guidLow))
         {
         static const char* const jokes[] = {
@@ -213,11 +213,11 @@ public:
                     allSuccess = false;
         }
 
-        // --- 2. Universal Heirlooms (ALL CLASSES) ---
+        // --- 2. Universal Heirlooms (4 ALL CLASSES) ---
         if (!GiveItem(player, RING_PIRATE))
             allSuccess = false;
 
-        // --- 3. Class-specific heirlooms (SECOND) ---
+        // --- 3. Class-specific heirlooms (2.) ---
         switch (classId)
         {
             case CLASS_MAGE:
@@ -254,7 +254,7 @@ public:
                 if (!GiveItem(player, CHEST_MAIL_AGI))    allSuccess = false;
                 if (!GiveItem(player, SHOULDER_MAIL_AGI)) allSuccess = false;
                 if (!GiveItem(player, WEAPON_BOW))        allSuccess = false;
-                if (!GiveItem(player, WEAPON_MACE_1H_AGI))allSuccess = false;
+                if (!GiveItem(player, WEAPON_AXE_2H_STR)) allSuccess = false;
                 if (!GiveItem(player, TRINKET_MELEE))     allSuccess = false;
                 if (!GiveItem(player, TRINKET_MELEE))     allSuccess = false;
                 break;
@@ -306,14 +306,14 @@ public:
                 return true;
         }
 
-        // --- 4. Bags (LAST) ---
+        // --- 4. Bags ---
         uint32 bagId = sConfigMgr->GetOption<uint32>("StarterGear.BagId", 41600);
         uint32 bagCount = sConfigMgr->GetOption<uint32>("StarterGear.BagCount", 4);
         for (uint32 i = 0; i < bagCount; ++i)
             if (!GiveItem(player, bagId))
                 allSuccess = false;
 
-        // --- Finalize: Only mark as used if EVERY GiveItem call was true ---
+        // --- Finalize: Only mark as used if EVERY fucking GiveItem call was true ---
         if (allSuccess)
         {
             MarkAsUsed(guidLow);
